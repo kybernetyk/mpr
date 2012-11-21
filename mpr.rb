@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'mpd_client'
 
+set :port, 80
+
 def make_client()
 	client = MPDClient.new
 	client.connect('localhost')
