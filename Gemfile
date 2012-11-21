@@ -1,0 +1,1 @@
+gem 'mpd_client'

@@ -1,0 +1,26 @@
+<div class='nowplaying'>
+	Now playing '<%= @song['artist'] %>' - '<%= @song['title'] %>' ...
+</div>
+<div class='transport'>
+	<a href='/playpause'>Play/Pause</a> | <a href='/next'>Next</a> | <a href='/prev'>Prev</a>
+</div>
+
+<div class='playlist'>
+<table border=1>
+	<tr>
+		<td><b>Track #</b></td>
+		<td><b>Artist</b></td>
+		<td><b>Song</b></td>
+		<td><b>Album</b></td>
+	</tr>
+	
+	<% @playlist.each do |entry| %>
+		<tr <%= 'style="font-weight:bold;" bgcolor="#00ff00"' if entry['id'] == @song['id'] %>>
+			<td><a href='/play/<%= entry['id'] %>'> <%= entry['track'] %></a></td>
+			<td><%= entry['artist'] %></td>
+			<td><a href='/play/<%= entry['id'] %>'> <%= entry['title'] %></a></td>
+			<td><%= entry['album'] %></td>
+		</tr>
+	<% end %>
+	</table>
+</div>
