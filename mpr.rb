@@ -12,6 +12,8 @@ end
 get '/' do
 	mpd = make_client()
 	@song = mpd.currentsong 
+	@song = {} if !@song
+	
 	@playlist = mpd.playlistinfo
 	erb :main
 end
